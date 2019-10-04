@@ -1,5 +1,5 @@
 # ProGamer2000.github.io
-Hello Everyone I am trying to make Pokemon Fire red online so everyone can veiw and play online and be able to make copies too.
+Hello Everyone I am Himanshu and I am trying to make roms online so everyone can veiw and play online.
 
 ### Links to the pages
-- [Pokemon Fire Red](http://ProGamer2000.github.io/GBA/launcher.html#pokemonred)
+- [Click here to see the list](http://ProGamer2000.github.io/GBA/)
