@@ -8,6 +8,8 @@
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	</head>
 	<body>
 		<header>
@@ -16,7 +18,7 @@
 		<div id="FenInDiv">
 			Fen:<br/>
 			<input type="text" id="fenIn" value="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"/>		
-			<button type="button" id="SetFen">Set Position</button>	
+			<button type="button" id="SetFen" class="waves-effect waves-light btn">Set Position</button>	
 		</div>
         <div id="Board">
         </div>
@@ -36,10 +38,10 @@
             <span id="NodesOut">Nodes:</span><br/>
             <span id="OrderingOut">Ordering:</span><br/>
             <span id="TimeOut">Time:</span><br/><br/>
-            <button type="button" id="SearchButton" style="padding: 2px; margin: 2px;">Move Now</button><br/>
-            <button type="button" id="NewGameButton" style="padding: 2px; margin: 2px;">New Game</button><br/>
-            <button type="button" id="FlipButton" style="padding: 2px; margin: 2px;">Flip Board</button><br/><br/>
-            <button type="button" id="TakeButton" style="padding: 2px; margin: 2px;">Take Back</button><br/><br/>
+            <button type="button" id="SearchButton" style="padding: 2px; margin: 2px;" class="waves-effect waves-light btn">Move Now</button><br/>
+            <button type="button" id="NewGameButton" style="padding: 2px; margin: 2px;" class="waves-effect waves-light btn">New Game</button><br/>
+            <button type="button" id="FlipButton" style="padding: 2px; margin: 2px;" class="waves-effect waves-light btn">Flip Board</button><br/><br/>
+            <button type="button" id="TakeButton" style="padding: 2px; margin: 2px;" class="waves-effect waves-light btn">Take Back</button><br/><br/>
             <span id="GameStatus"></span>
         </div>
 		
