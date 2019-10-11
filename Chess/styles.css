@@ -1,16 +1,74 @@
 *{
     font-family: 'Hepta Slab', serif;
 }
+section{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100vh;
+ box-sizing:border-box;
+ padding:100px;
+ transition:0.5s;
+}
 
+section.dark{
+ background:#262626;
+ color:#fff;
+}
+
+ul{
+ position:absolute;
+ top:20px;
+ right:20px;
+ margin:0;
+ padding:0;
+ width:100px;
+ height:30px;
+ z-index:1;
+ border:1px solid #000;
+ border-radius:4px;
+ cursor:pointer;
+ overflow:hidden;
+}
+
+ul.active{
+ border-color:#fff;
+}
+
+ul li{
+ list-style:none;
+ width:100%;
+ height:60px;
+ text-align:center;
+ text-transform:uppercase;
+ transition:0.5s;
+}
+
+ul.active li{
+ transform:translateY(-30px);
+}
+
+ul li span{
+ display:block;
+ width:100%;
+ height:30px;
+ line-height:30px;
+ color:#262626;
+ background:#fff;
+}
+
+ul li span:nth-child(1){
+ background:#262626;
+ color:#fff;
+}
 #FenInDiv {
     position: relative;
-    left: 60px;
-}
+    left: 60px;}
 
 #fenIn {
     width: 480px;
-    left: 60px;
-}
+    left: 60px;}
 
 #Board {
     position: relative;
@@ -18,20 +76,17 @@
     left: 60px;
     width: 480px;
     height: 480px;
-    border: 2px solid;
-}
+    border: 2px solid;}
 
 #EngineOutput {
     position: absolute;
     left: 600px;
-    top: 200px;
-}
+    top: 200px;}
 
 .Square {
     position: absolute;
     width: 60px;
-    height: 60px;
-}
+    height: 60px;}
 
 .Dark {
     background-color: #5fbcd3;
