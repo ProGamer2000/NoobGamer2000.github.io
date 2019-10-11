@@ -1,3 +1,7 @@
+*{
+    font-family: 'Hepta Slab', serif;
+}
+
 #FenInDiv {
     position: relative;
     left: 60px;
