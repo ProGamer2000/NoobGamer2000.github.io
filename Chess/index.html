@@ -4,6 +4,10 @@
 		<meta charset="utf-8">
 		<title>JSChess</title>
         <link href="styles.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<header>
@@ -18,14 +22,18 @@
         </div>
         <div id="EngineOutput">
             Thinking Time: <br/>
-            <select id="ThinkTimeChoice" class="dropdown">
-                <option value="1">1s</option>
-                <option value="2">2s</option>
-                <option value="4">4s</option>
-                <option value="6">6s</option>
-                <option value="8">8s</option>
-                <option value="10">10s</option>
-            </select>
+            <div class="dropdown">
+	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="ThinkTimeChoice">
+	    <span class="caret"></span></button>
+   	    <ul class="dropdown-menu">
+                <li value="1">1s</li>
+                <li value="2">2s</li>
+                <li value="4">4s</li>
+                <li value="6">6s</li>
+                <li value="8">8s</li>
+                <li value="10">10s</li>
+	    </ul>
+	    </div>
             <br/><br/><br/>
             <span id="BestOut">Best Move:</span><br/>
             <span id="DepthOut">Depth:</span><br/>
