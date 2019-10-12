@@ -1,67 +1,9 @@
-*{
-    font-family: 'Hepta Slab', serif;
-}
-section{
- position:absolute;
- top:0;
- left:0;
- width:100%;
- height:100vh;
- box-sizing:border-box;
- padding:100px;
- transition:0.5s;
-}
+/*This sheet is connected*/
+/* important css */
+*{font-family: 'Hepta Slab', serif;cursor: default;}
+input{cursor: text;}
+#Board{cursor: pointer;}
 
-section.dark{
- background:#262626;
- color:#fff;
-}
-
-ul{
- position:absolute;
- top:20px;
- right:20px;
- margin:0;
- padding:0;
- width:100px;
- height:30px;
- z-index:1;
- border:1px solid #000;
- border-radius:4px;
- cursor:pointer;
- overflow:hidden;
-}
-
-ul.active{
- border-color:#fff;
-}
-
-ul li{
- list-style:none;
- width:100%;
- height:60px;
- text-align:center;
- text-transform:uppercase;
- transition:0.5s;
-}
-
-ul.active li{
- transform:translateY(-30px);
-}
-
-ul li span{
- display:block;
- width:100%;
- height:30px;
- line-height:30px;
- color:#262626;
- background:#fff;
-}
-
-ul li span:nth-child(1){
- background:#262626;
- color:#fff;
-}
 #FenInDiv {
     position: relative;
     left: 60px;}
@@ -138,4 +80,17 @@ ul li span:nth-child(1){
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+/* not so important */
+body::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }

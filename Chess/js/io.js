@@ -76,4 +76,3 @@ IoController.parseMove = function (from, to) {
     
     return NOMOVE;
 };
-                    

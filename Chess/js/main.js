@@ -119,4 +119,3 @@ $(function () {
 	console.log("Main Init Called");
     GuiController.newGame(START_FEN);
 });
-

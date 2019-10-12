@@ -297,14 +297,14 @@ GuiController.checkResult = function () {
     
     if (inCheck === BOOL.TRUE) {
         if (GameBoardController.side === COLOURS.WHITE) {
-            $("#GameStatus").text("GAME OVER {black mates}");
+            $("#GameStatus").text("GAME OVER [BLACK Mates White]");
             return BOOL.TRUE;
         } else {
-            $("#GameStatus").text("GAME OVER {white mates}");
+            $("#GameStatus").text("GAME OVER [White Mates Black]");
             return BOOL.TRUE;
         }
     } else {
-        $("#GameStatus").text("GAME DRAWN {stalemate}");
+        $("#GameStatus").text("GAME DRAWN [Stalemate]");
         return BOOL.TRUE;
     }
 
@@ -358,5 +358,3 @@ GuiController.startSearch = function () {
 // r1bq2rk/pp3pbp/2p1p1pQ/7P/3P4/2PB1N2/PP3PPR/2KR4 w - -
 
 // 1br3k1/p4p2/2p1r3/3p1b2/3Bn1p1/1P2P1Pq/P3Q1BP/2R1NRK1 b - -
-                   
-                   

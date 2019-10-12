@@ -416,12 +416,3 @@ GameBoardController.sqAttacked = function (sq, side) {
     
     return BOOL.FALSE;
 };
-            
-    
-    
-    
-    
-    
-    
-    
-    
