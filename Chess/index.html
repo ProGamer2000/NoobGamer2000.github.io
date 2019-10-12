@@ -7,7 +7,7 @@
 	<link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body>
+	<body id="main" class="light-mode">
 		<!--Begining of the content-->
 		<header>
 			<h3><center>Chess</center></h3>			
@@ -25,7 +25,7 @@
         	<!--Deep thinking time-->
             Thinking Time: <br/>
 		<select  class="btn btn-primary dropdown-toggle" id="ThinkTimeChoice">
-			  <option value="1">1 s</option>
+			  <option value="1" selected="true">1 s</option>
 			  <option value="2">2 s</option>
 			  <option value="3">3 s</option>
 			  <option value="4">4 s</option>
@@ -45,9 +45,6 @@
 			  <option value="18">18 s</option>
 			  <option value="19">19 s</option>
 			  <option value="20">20 s</option>
-			  <option value="21">21 s</option>
-			  <option value="23">22 s</option>
-			  <option value="23">23 s</option>
 			</select><br/><br/><br/>
 			<!--Extra Info-->
 			<h6>Extra Info:</h6>
@@ -66,14 +63,13 @@
             <span id="GameStatus"></span>
         </div>
 		<!--All The Style sheets-->
-		<link href="styles.css" rel="stylesheet" type="text/css">
-		<link href="themes.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Hepta+Slab" rel="stylesheet">
+		<link href="styles.css" rel="stylesheet" type="text/css">
+		<link href="themes.css" rel="stylesheet" type="text/css">
 		<!--All The scripts-->
   		<!--I know a lot of scripts are there but I could nothing about it so deal with it. LOL-->
-  		<script src="Script.js"></script>
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -89,9 +85,11 @@
         <script src="js/perft.js"></script>
         <script src="js/gui.js"></script>
 		<script src="js/main.js"></script>
-<br><br>
+  		<script src="Script.js"></script>
+<br><br><br><br><br>
 	<!--Work in process-->
-	<p>Work in process for dark mode. Thanks for copperation!</p>
-    <button class="waves-effect waves-light btn" style="color: white;"><em>Enable Dark Mode!</em></button>
-	</body>
+	<p>Work in process for dark mode. Thanks for copperation! BTW IT does work a bit!</p>
+    <!-- <button class="waves-effect waves-light btn" style="color: white;"><em>Enable Dark Mode!</em></button> -->
+      <button type="button" onclick="toggle()" id="Dark" class="btn btn-outline-light" style="color:white;"><em>Enable Dark Mode!</em></button>
+   	</body>
 </html>
