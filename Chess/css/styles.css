@@ -1,5 +1,9 @@
 /*This sheet is connected*/
 /* important css */
+@font-face {
+  font-family: Font;
+  src: url(css/font.css);
+}
 *{font-family: 'Hepta Slab', serif;cursor: default;}
 input{cursor: text;}
 #Board{cursor: pointer;}
@@ -94,3 +98,10 @@ body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
+button{
+     line-height: 12px;
+     font-family: Font;
+     margin-top: 1px;
+     margin-right: 2px;
+}
+input{font-family: 'Ubuntu', sans-serif;}

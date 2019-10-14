@@ -5,30 +5,48 @@
 body.dark-mode {
   background-color: #111;
   color: #eee;
+transition: 1s all ease;
   a {
     color: #111;
+transition: 1s all ease;
   }
   button {
     background-color: #eee;
+transition: 1s all ease;
     color: #111;
   }
   textarea:focus, input:focus {
     color: #ffffff;
+transition: 1s all ease;
 }
 
 input, select, textarea{
     color: #a85b82;
+transition: 1s all ease;
 }
 }
 
 body.light-mode {
   background-color: #eee;
   color: #111;
+transition: 1s all ease;
   a {
     color: #111;
+transition: 1s all ease;
   }
   button {
     background-color: #111;
     color: #eee;
+transition: 1s all ease;
   }
+}
+#Dark{
+     line-height: 12px;
+     width: 250px;
+     font-family: Font;
+     margin-top: 1px;
+     margin-right: 2px;
+     position: absolute;
+     top:0;
+     right:0;
 }
