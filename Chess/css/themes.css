@@ -15,15 +15,6 @@ transition: 1s all ease;
 transition: 1s all ease;
     color: #111;
   }
-  textarea:focus, input:focus {
-    color: #ffffff;
-transition: 1s all ease;
-}
-
-input, select, textarea{
-    color: #a85b82;
-transition: 1s all ease;
-}
 }
 
 body.light-mode {
@@ -32,12 +23,12 @@ body.light-mode {
 transition: 1s all ease;
   a {
     color: #111;
-transition: 1s all ease;
+    transition: 1s all ease;
   }
   button {
     background-color: #111;
     color: #eee;
-transition: 1s all ease;
+    transition: 1s all ease;
   }
 }
 #Dark{

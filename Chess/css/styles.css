@@ -105,3 +105,12 @@ button{
      margin-right: 2px;
 }
 input{font-family: 'Ubuntu', sans-serif;}
+textarea:focus, input:focus {
+    color: #cc2579;
+    transition: 1s all ease;
+  }
+
+  input, select, textarea{
+    color: #cc2579;
+    transition: 1s all ease;
+  }
