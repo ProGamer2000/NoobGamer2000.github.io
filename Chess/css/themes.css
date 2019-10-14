@@ -12,6 +12,13 @@ body.dark-mode {
     background-color: #eee;
     color: #111;
   }
+  textarea:focus, input:focus {
+    color: #ffffff;
+}
+
+input, select, textarea{
+    color: #a85b82;
+}
 }
 
 body.light-mode {
