@@ -1,10 +1,6 @@
 /*This sheet is connected*/
 /* important css */
-@font-face {
-  font-family: Font;
-  src: url(css/font.css);
-}
-*{font-family: 'Hepta Slab', serif;cursor: default;}
+*{font-family: 'Arima Madurai', cursive;}
 input{cursor: text;}
 #Board{cursor: pointer;}
 
@@ -100,7 +96,7 @@ body::-webkit-scrollbar-thumb {
 }
 button{
      line-height: 12px;
-     font-family: Font;
+     font-family: 'Arima Madurai', cursive;
      margin-top: 1px;
      margin-right: 2px;
 }
