@@ -1,0 +1,94 @@
+<!--main-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Chess</title>
+	<link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body id="main" class="light-mode">
+		<!--Begining of the content-->
+		<header>
+			<h3><center>Chess</center></h3>			
+		</header>
+		<div id="FenInDiv">
+			Fen:<br/>
+			<input type="text" id="fenIn" value="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"/>		
+			<button type="button" id="SetFen" class="waves-effect waves-light btn" style="color: white;">Set Position</button>	
+		<!--Board Area-->
+		</div>
+        <div id="Board">
+        </div>
+        <!--Engine area-->
+        <div id="EngineOutput">
+        	<!--Deep thinking time-->
+            Thinking Time: <br/>
+		<select  class="btn btn-primary dropdown-toggle" id="ThinkTimeChoice">
+			  <option value="1" selected="true">speed play</option>
+			  <option value="2">2 s</option>
+			  <option value="3">3 s</option>
+			  <option value="4">4 s</option>
+			  <option value="5">5 s</option>
+			  <option value="6">6 s</option>
+			  <option value="7">7 s</option>
+			  <option value="8">8 s</option>
+			  <option value="9">9 s</option>
+			  <option value="10">10 s</option>
+			  <option value="11">11 s</option>
+			  <option value="12">12 s</option>
+			  <option value="13">13 s</option>
+			  <option value="14">14 s</option>
+			  <option value="15">15 s</option>
+			  <option value="16">16 s</option>
+			  <option value="17">17 s</option>
+			  <option value="18">18 s</option>
+			  <option value="19">19 s</option>
+			  <option value="20">20 s</option>
+			</select><br/><br/><br/>
+			<!--Extra Info-->
+			<h6>Extra Info:</h6>
+            <span id="BestOut">Best Move:</span><br/>
+            <span id="DepthOut">Depth:</span><br/>
+            <span id="ScoreOut">Score:</span><br/>
+            <span id="NodesOut">Nodes:</span><br/>
+            <span id="OrderingOut">Ordering:</span><br/>
+            <span id="TimeOut">Time:</span><br/><br/>
+            <!--Utilitys-->
+            <h6>	Utilitys:</h6>
+            <button type="button" id="SearchButton" style="color: white;height:40px; width:100px;padding: 2px; margin: 2px;" class="waves-effect waves-light btn">Move Now</button><br/>
+            <button type="button" id="NewGameButton" style="color: white;color: white;color: white;height:40px; width:100px;padding: 2px; margin: 2px;" class="waves-effect waves-light btn">New Game</button><br/>
+            <button type="button" id="FlipButton" style="color: white;color: white;height:40px; width:100px;padding: 2px; margin: 2px;" class="waves-effect waves-light btn">Flip Board</button><br/><br/>
+            <button type="button" id="TakeButton" style="color: white;height:40px; width:100px;padding: 2px; margin: 2px;" class="waves-effect waves-light btn">Take Back</button><br/><br/>
+            <span id="GameStatus"></span>
+        </div>
+		<!--All The Style sheets-->
+		<link href="css/font/ArimaMadurai.css" rel="stylesheet">
+		<link href="css/font/Unbuntu.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+  		<link href="css/materialize.min.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
+		<link href="css/themes.css" rel="stylesheet" type="text/css">
+		<!--All The scripts-->
+  		<!--I know a lot of scripts are there but I could nothing about it so deal with it. LOL-->
+  		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/materialize.min.js"></script>
+		<script src="js/jquery-1.10.1.min.js"></script>		
+		<script src="js/defs.js"></script>
+        <script src="js/io.js"></script>
+        <script src="js/gameboardcontroller.js"></script>
+        <script src="js/movegen.js"></script>
+        <script src="js/makemove.js"></script>
+        <script src="js/evaluate.js"></script>
+        <script src="js/pvtable.js"></script>
+        <script src="js/search.js"></script>
+        <script src="js/perft.js"></script>
+        <script src="js/gui.js"></script>
+		<script src="js/main.js"></script>
+  		<script src="js/Script.js"></script>
+<br><br><br><br><br>
+	<!--Work in process-->
+      <button type="button" onclick="toggle()" id="Dark" class="waves-effect waves-light btn" style="color:white;"><em>Enable Dark Mode!</em></button>
+   	</body>
+</html>
