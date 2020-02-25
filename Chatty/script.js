@@ -35,7 +35,7 @@ function info_find(){
 //This will do the bus Route task
 function keycode(SC){
     // SC = "b"
-    Routenumber = SC.toUpperCase() + String(route.sn['route'])
+    Routenumber = SC.toUpperCase() + String(route.sn['route' + SC.toUpperCase()])
     H = String(route.sn[SC + "h"])
     M = String(route.sn[SC + "m"])
     if(M.length === 1){
