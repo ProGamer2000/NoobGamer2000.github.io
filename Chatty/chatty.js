@@ -16,7 +16,7 @@ function chatty(choose){
         print2("What Utility do you want?", util_slist,util_flist);
     }
     else if (choose === 'date'){
-        output("Date",UT);
+        output("Date And Time",UT);
         output(new Date(),CT);
         run();
     }
@@ -29,7 +29,7 @@ function chatty(choose){
         //print2("What do you you want", ["lunch menu","Today's Special"],['menu("menuOfMonth")','menu("todaysSpecial")'])
     }
     else if (choose === "TS") {
-        output("Today's Special");
+        output("Today's Special",UT);
         finder('TS');
         run();
     }

@@ -42,9 +42,8 @@ function keycode(SC){
 	   M = "0" + M
     }
     Time = H + ":" + M;
-    output("The route number is " + Routenumber,CT)
-    output("The time is " + Time,CT)
-    run()
+    output("The route number is: " + Routenumber,CT);
+    AddToLast("The Time is: " + Time)
 }
 
 function route(Stopname){
@@ -54,9 +53,14 @@ function route(Stopname){
     	var SN = Route.route[i];
         if (SN['stopName'] === Stopname){
         	route.sn = Route.route[i];
-        	print2("What is the key code",['A(7:30am)','B(8:45am)','D(2:00pm)','E(3:30pm)'],['keycode("a")','keycode("b")','keycode("d")','keycode("e")'])
+        	keycode('a');
+            keycode('b');
+            keycode('d');
+            keycode('e');
+            run()
             return 0;
         }
     }
-    output("Sorry That's not a route check your spellings or mistakes",CT);
+    output("Sorry, That's not a route check your spellings or mistakes",CT);
+    run()
 }
