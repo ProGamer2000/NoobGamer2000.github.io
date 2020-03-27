@@ -1,9 +1,8 @@
-var TR = Get("route").route,Cardnum,obj,CT = "CT",UT = "UT";
+var TR = Get("route").route,obj,CT = "CT",UT = "UT";
 var util_slist = ["Form's Link", "Policy PDF","About Me"];
 var util_flist = ["chatty('FL')","chatty('PDF')","chatty('About_me')"];
 //A Function to run the chatbot
 function chatty(choose){
-    if (Cardnum === 1){
     if (choose === 'Utli'){
         output("Utility",UT);
         print2("What Utility do you want?", util_slist,util_flist);
@@ -46,12 +45,10 @@ function chatty(choose){
          }
          print3("Choose your Transport route", obj);
         }
-    }
 }
 //form submit for input box
-$("#sub").click(function(event) {check(event)});
-function check(e) {
+$('form').on('submit', function(e){
 	e.preventDefault();
     chatty(input().toLowerCase());
 	$('form').trigger("reset");
-}
+});
