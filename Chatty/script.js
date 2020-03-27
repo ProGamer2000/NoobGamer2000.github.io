@@ -49,8 +49,11 @@ function keycode(SC){
 function route(Stopname){
     // Stopname = "Opp.Someshwar Enclave Main Gate"
     $('select').prop('disabled', true);
-    for (var i = Route.route.length - 1; i >= 0; i--){
+    $('.form-control').removeAttr('disabled');
+    $('.form-control').prop('placeholder','Type the options instead...');
+    for (var i = 0; i != Route.route.length; i++){
     	var SN = Route.route[i];
+        console.log(SN['stopName']);
         if (SN['stopName'] === Stopname){
         	route.sn = Route.route[i];
         	keycode('a');
