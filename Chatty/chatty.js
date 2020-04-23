@@ -7,6 +7,10 @@ function chatty(choose){
         output("Utility",UT);
         print2("What Utility do you want?", util_slist,util_flist);
     }
+    else if (choose === 'About_me'){
+        output('Under Process...',CT)
+        run()
+    }
     else if (choose === 'FL'||choose === "form's link"){
         output("Form's Link",UT);
         print2("Please choose what links you want to acess",["Exigency reporting form","Dressing Feedback to Individual","PYP School Counselor Intervention Form","Event Feedback form","Field Trip / Outstation Event Requisition Form","Event Requisition/Students Calendar Entry Form 2019-20"],["window.open('https://bit.ly/2TRb5qG');run()","window.open('https://bit.ly/37wh2NC');run()","window.open('https://bit.ly/36nKyUp');run()","window.open('https://bit.ly/3awMWMd');run()","window.open('https://bit.ly/2Gcm2LB');run()","window.open('http://bit.ly/3c8YMNi');run()"]);
@@ -25,7 +29,7 @@ function chatty(choose){
         window.open('https://bit.ly/2Nl0a4m');
         run()
     }
-    else if (choose === "lunch"){
+    else if (choose === "lunch"||choose === 'menu'){
         $('.form-control').attr('disabled', true);
         $('.form-control').prop('placeholder','Please choose options given above');
         print2(" ", ['Today','This month'], ['finder("Today")','finder("Month")']);
@@ -45,6 +49,9 @@ function chatty(choose){
          }
          print3("Choose your Transport route", obj);
         }
+    else {
+    	console.info('The command term ' + choose + ' is not defined')
+    }
 }
 //form submit for input box
 $('form').on('submit', function(e){
