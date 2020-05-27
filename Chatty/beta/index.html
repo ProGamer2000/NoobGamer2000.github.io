@@ -6,9 +6,7 @@
     <title>Chatty</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://https://v2-api.sheety.co/">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="dns-prefetch" href="https://v2-api.sheety.co/9a12bc0f9230b39275673e809fbca912/chattyApi/">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
@@ -34,16 +32,15 @@
         </div>
     <div class="bot">
         <div id="Textbox"></div>
-    <form>
-        <div class="input-group mb-3">
-            <input type="text" id="option-typer" class="form-control" placeholder="Type the options instead...">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary">
-                	<i class="fa fa-paper-plane"></i>
-                </button>
+    <form onsubmit="event.preventDefault(); chatty(input().toLowerCase());this.reset()">
+    <div class="search_container">
+    <input class="search_input" id="option-typer" type="text" placeholder="Type the options instead...">
+                <button class="sub"></button>
             </div>
-        </div>
     </form>
+        </div>
+</div>
+</div>
 </body>
 
 </html>

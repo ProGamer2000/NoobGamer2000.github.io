@@ -54,9 +54,3 @@ function chatty(choose){
     	console.info('The command term ' + choose + ' is not defined')
     }
 }
-//form submit for input box
-$('form').on('submit', function(e){
-	e.preventDefault();
-    chatty(input().toLowerCase());
-	$('form').trigger("reset");
-});

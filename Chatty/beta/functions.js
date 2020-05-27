@@ -9,8 +9,8 @@ function clear() {
 }
 // print command
 function output(text, side = "CT") {
-    $('.btn-outline-info').prop('disabled', true);
-    $('.btn-outline-info').prop('class', 'btn btn-outline-secondary btn-lg btn-block');
+    $('.Button').prop('disabled', true);
+    $('.Button').prop('class', 'disable');
     count++;
     var text = String(text);
     var side = String(side);
@@ -41,8 +41,8 @@ function output(text, side = "CT") {
 }
 //Buttons print command
 function print2(text, string, func, clear) {
-    $('.btn-outline-info').prop('disabled', true);
-    $('.btn-outline-info').prop('class', 'btn btn-outline-secondary btn-lg btn-block');
+    $('.Button').prop('disabled', true);
+    $('.Button').prop('class', 'disable');
     count++;
     text = String(text);
     //Create the chatbot side container
@@ -68,7 +68,7 @@ function print2(text, string, func, clear) {
         btn.innerHTML = string[i];
         btn.setAttribute("id", "options")
         btn.setAttribute("onclick", func[i]);
-        btn.setAttribute("class", "btn btn-outline-info btn-lg btn-block");
+        btn.setAttribute("class", "Button");
         document.getElementById(valid).appendChild(btn);
     }
     //Just scroll to the last message
@@ -76,10 +76,10 @@ function print2(text, string, func, clear) {
 }
 //Dropdown print commands
 function print3(text, option) {
-    $('.form-control').attr('disabled', true);
-    $('.form-control').prop('placeholder', 'Please choose options given above');
-    $('.btn-outline-info').prop('disabled', true);
-    $('.btn-outline-info').prop('class', 'btn btn-outline-secondary btn-lg btn-block');
+    $('#option-typer').attr('disabled', true);
+    $('#option-typer').prop('placeholder', 'Please choose options given above');
+    $('.Button').prop('disabled', true);
+    $('.Button').prop('class', 'disable');
     count++;
     text = String(text);
     //Create the chatbot side container

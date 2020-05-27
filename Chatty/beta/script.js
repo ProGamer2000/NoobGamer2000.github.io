@@ -19,8 +19,8 @@ function keycode(SC){
 function route(Stopname){
     // Stopname = "Opp.Someshwar Enclave Main Gate"
     $('select').prop('disabled', true);
-    $('.form-control').removeAttr('disabled');
-    $('.form-control').prop('placeholder','Type the options instead...');
+    $('#option-typer').removeAttr('disabled');
+    $('#option-typer').prop('placeholder','Type the options instead...');
     for (var i = 0; i != Route.route.length; i++){
     	var SN = Route.route[i];
         console.log(SN['stopName']);
