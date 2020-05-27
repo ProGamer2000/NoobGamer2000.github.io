@@ -1,7 +1,7 @@
 var CT = "CT";
 var UT = "UT";
 var count = 0;
-var Slist = ["Menu", "Today's Special", "Transport Route", "Day", "Contact List/ Intercom", "Utilitys"];
+var Slist = ["Menu", "Today's Special", "Transport Route", "Day", "Contact List/ Intercom", "Utilities"];
 var flist = ["chatty('lunch')", "chatty('TS')", "chatty('TR')", "chatty('date')", "chatty('CL')", "chatty('Utli')"];
 
 function clear() {
