@@ -9,8 +9,8 @@ function clear() {
 }
 // print command
 function output(text, side = "CT") {
-    $('.Button').prop('disabled', true);
-    $('.Button').prop('class', 'disable');
+    changeall('.Button','disabled',true);
+    changeall('.Button','class','disable');
     count++;
     var text = String(text);
     var side = String(side);
@@ -41,8 +41,8 @@ function output(text, side = "CT") {
 }
 //Buttons print command
 function print2(text, string, func, clear) {
-    $('.Button').prop('disabled', true);
-    $('.Button').prop('class', 'disable');
+    changeall('.Button','disabled',true);
+    changeall('.Button','class','disable');
     count++;
     text = String(text);
     //Create the chatbot side container
@@ -76,10 +76,10 @@ function print2(text, string, func, clear) {
 }
 //Dropdown print commands
 function print3(text, option) {
-    $('#option-typer').attr('disabled', true);
-    $('#option-typer').prop('placeholder', 'Please choose options given above');
-    $('.Button').prop('disabled', true);
-    $('.Button').prop('class', 'disable');
+    changeall('#option-typer','disabled',true);
+    changeall('#option-typer','placeholder','Please choose options given above');
+    changeall('.Button','disabled',true);
+    changeall('.Button','class','disable');
     count++;
     text = String(text);
     //Create the chatbot side container
@@ -102,9 +102,9 @@ function print3(text, option) {
     //Create the select menu
     selid = String(count) + "s";
     var sel = document.createElement("select");
-    sel.setAttribute("id", selid);
-    sel.setAttribute("class", "select");
-    sel.setAttribute("onchange", "route(this.value)");
+    sel.setAttribute( "id", selid);
+    sel.setAttribute( "class", "select");
+    sel.setAttribute( "onchange", "route(this.value)");
     document.getElementById(valid).appendChild(sel);
     //select options option
     var selopt = document.createElement("option");
@@ -127,7 +127,13 @@ function AddToLast(Text) {
     last_para.appendChild(document.createElement("br"))
     last_para.innerHTML = last_para.innerHTML + String(Text)
 }
-
+function changeall(elem,atrribute,value) {
+    var time = document.querySelectorAll(elem).length
+    while (time > 0){
+        time--;
+        document.querySelectorAll(elem)[time].setAttribute(atrribute,value)
+    }
+}
 function run() {
     var run = setTimeout(function() {
         print2("Choose between the options", Slist, flist);

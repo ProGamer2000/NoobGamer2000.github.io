@@ -30,8 +30,8 @@ function chatty(choose){
         run()
     }
     else if (choose === "lunch"||choose === 'menu'){
-        $('.form-control').attr('disabled', true);
-        $('.form-control').prop('placeholder','Please choose options given above');
+        changeall('#option-typer','disabled',true);
+        changeall('#option-typer','placeholder','Please choose options given above');
         output("Menu",UT);
         print2(" ", ['Today','This month'], ['finder("Today")','finder("Month")']);
         //print2("What do you you want", ["lunch menu","Today's Special"],['menu("menuOfMonth")','menu("todaysSpecial")'])

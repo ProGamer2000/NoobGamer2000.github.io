@@ -17,10 +17,9 @@ function keycode(SC){
 }
 
 function route(Stopname){
-    // Stopname = "Opp.Someshwar Enclave Main Gate"
-    $('select').prop('disabled', true);
-    $('#option-typer').removeAttr('disabled');
-    $('#option-typer').prop('placeholder','Type the options instead...');
+    changeall('select','disabled',true);
+    document.querySelector('#option-typer').removeAttribute('disabled');
+    changeall('#option-typer','placeholder','Type the options instead...');
     for (var i = 0; i != Route.route.length; i++){
     	var SN = Route.route[i];
         console.log(SN['stopName']);

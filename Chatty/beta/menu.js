@@ -30,7 +30,7 @@ function finder(id){
     }
     output("Sorry The Menu Card was updated yet");
     window.open("https://www.fountainheadschools.org/helpdesk/school-menu/");
-    $('.form-control').removeAttr('disabled');
-    $('.form-control').prop('placeholder','Type the options instead...');
+    document.querySelector('#option-typer').removeAttribute('disabled');
+    changeall('#option-typer','placeholder','Type the options instead...');
     run()
 }
