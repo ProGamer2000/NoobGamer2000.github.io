@@ -9,7 +9,7 @@ function keycode(SC) {
         M = "0" + M
     }
     Time = H + ":" + M;
-    output("The route number is: " + Routenumber);
+    append(new TextClass("The route number is: " + Routenumber).createClientSide());
     AddToLast("The Time is: " + Time)
 }
 

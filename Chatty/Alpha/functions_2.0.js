@@ -22,9 +22,6 @@ function Get(Url) {
         console.log(URL + ' not found')
         return "";
     }
-    finally {
-        console.log('-')
-    }
 }
 
 function filterFunction() {
