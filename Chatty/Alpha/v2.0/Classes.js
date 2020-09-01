@@ -3,16 +3,16 @@ const textclass = class {
         this.text = String(Text).replace(/\n/g, '<br>');
     }
     createBotSide() {
-        return new textclass(this.text).createClientSide('chatty', '', '');
+        return new textclass(this.text).createClientSide('Bot.jpg', '', '');
     }
-    createClientSide(a = 'user', b = 'right', c = 'darker') {
+    createClientSide(a = 'user.png', b = 'right', c = 'darker') {
         disableall();
         var container = document.createElement('div');
         container.setAttribute("class", `container ${c}`);
         var img = document.createElement("img");
         img.setAttribute("class", `${b}`);
         img.setAttribute("alt", "Avatar");
-        img.setAttribute("src", `img/${a}.png`);
+        img.setAttribute("src", `img/${a}`);
         container.appendChild(img);
         var val = document.createElement("p");
         val.innerHTML = this.text;
