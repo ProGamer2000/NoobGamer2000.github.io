@@ -1,5 +1,5 @@
-var Slist = ["Menu", "Today's Special", "Transport Route", "Day", "Contact List/ Intercom", "Utilities"];
-var flist = ["chatty('lunch')", "chatty('TS')", "chatty('TR')", "chatty('date')", "chatty('CL')", "chatty('Utli')"];
+const Slist = ["Menu", "Today's Special", "Transport Route", "Day", "Contact List/ Intercom", "Utilities"];
+const flist = ["chatty('lunch')", "chatty('TS')", "chatty('TR')", "chatty('date')", "chatty('CL')", "chatty('Utli')"];
 const append = function(container) {
     document.getElementById('Textbox').appendChild(container);
 }
@@ -8,21 +8,17 @@ window.addEventListener('load', function() {
     append(new OptionClass(Slist, flist));
 }, false);
 
-function Get(Url) {
-        var URL = 'https://v2-api.sheety.co/9a12bc0f9230b39275673e809fbca912/chattyApi/' + Url;
-    try {
-        var Httpreq = new XMLHttpRequest(); // a new request
-        Httpreq.open("GET", URL, false);
-        Httpreq.setRequestHeader('Authorization', 'Bearer 418362');
-        Httpreq.send(null);
-        var value = String(Httpreq.responseText);
-        var value = JSON.parse(value);
-        return value;
-    } catch (e) {
-        console.log(URL + ' not found')
-        return "";
-    }
-}
+const get = async (url) => await fetch(
+    'https://v2-api.sheety.co/9a12bc0f9230b39275673e809fbca912/chattyApi/' + url,
+    {
+        headers: new Headers({
+            'Authorization': 'Bearer 418362',
+            'Content-Type': 'application/json'
+        })
+    })
+.then(response => response.json())
+.then(json => json)
+.catch(err => console.log(err))
 
 function filterFunction() {
     var input, filter, ul, li, a, i;

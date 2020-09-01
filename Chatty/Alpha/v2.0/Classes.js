@@ -1,9 +1,9 @@
-const TextClass = class {
+const textclass = class {
     constructor(Text) {
         this.text = String(Text).replace(/\n/g, '<br>');
     }
     createBotSide() {
-        return new TextClass(this.text).createClientSide('chatty', '', '');
+        return new textclass(this.text).createClientSide('chatty', '', '');
     }
     createClientSide(a = 'user', b = 'right', c = 'darker') {
         disableall();
@@ -23,12 +23,12 @@ const TextClass = class {
 }
 
 const OptionClass = class {
-    constructor(options, OptionFunction) {
-        var container = new TextClass('Please Choose from options Below!!').createBotSide();
+    constructor(options, optionfunction) {
+        var container = new textclass('Please Choose from options Below!!').createBotSide();
         for (var i = 0; i != options.length; i++) {
             var btn = document.createElement("button");
             btn.innerHTML = options[i];
-            btn.setAttribute("onclick", OptionFunction[i]);
+            btn.setAttribute("onclick", optionfunction[i]);
             btn.setAttribute("class", "Button");
             container.appendChild(btn);
         }
@@ -36,9 +36,9 @@ const OptionClass = class {
     }
 }
 
-const Dropdown = class {
+const dropdown = class {
     constructor(option) {
-        var container = new TextClass('Choose your Transport route!!').createBotSide();
+        var container = new textclass('Choose your Transport route!!').createBotSide();
         var search = document.createElement('input');
         search.setAttribute('id', 'myInput');
         search.setAttribute('onkeyup', 'filterFunction();');
@@ -49,7 +49,7 @@ const Dropdown = class {
         container.appendChild(form);
         for (var i = 0; i != option.length; i++) {
             var options = document.createElement('a');
-            options.setAttribute('onclick', 'route(this.innerText)')
+            options.setAttribute('onclick', 'routeofstop(this.innerText)')
             options.innerHTML = option[i];
             form.appendChild(options)
         }

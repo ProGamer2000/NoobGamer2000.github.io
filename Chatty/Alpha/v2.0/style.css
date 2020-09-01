@@ -8,7 +8,24 @@ select {
     background-color: #39CCCC;
     font-size: 15px;
 }
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+tr:nth-child(1){background-color: #4CAF50}
 
+th {
+    width:10%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+table tr:hover {background-color: #ddd;}
 .sub {
     border-radius: 0px 50px 50px 0px;
     border: 1px solid #575756;
