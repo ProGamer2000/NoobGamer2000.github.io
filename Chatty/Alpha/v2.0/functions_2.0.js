@@ -1,8 +1,6 @@
 const Slist = ["Menu", "Today's Special", "Transport Route", "Day", "Contact List/ Intercom", "Utilities"];
 const flist = ["chatty('lunch')", "chatty('TS')", "chatty('TR')", "chatty('date')", "chatty('CL')", "chatty('Utli')"];
-const append = function(container) {
-    document.getElementById('Textbox').appendChild(container);
-}
+
 window.addEventListener('load', function() {
     document.getElementsByClassName('loading')[0].remove()
     append(new OptionClass(Slist, flist));

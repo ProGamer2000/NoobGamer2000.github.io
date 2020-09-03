@@ -8,7 +8,7 @@ function keycode(sc) {
         M = "0" + M
     }
     Time = H + ":" + M;
-    append(new textclass("The route number is: " + routenumber + "\nThe Time is: " + Time).createClientSide());
+    append(new TextClass("The route number is: " + routenumber + "\nThe Time is: " + Time).createClientSide());
 }
 
 function routeofstop(e) {

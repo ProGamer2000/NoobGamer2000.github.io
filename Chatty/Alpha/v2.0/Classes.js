@@ -1,9 +1,9 @@
-const textclass = class {
+const TextClass = class {
     constructor(Text) {
         this.text = String(Text).replace(/\n/g, '<br>');
     }
     createBotSide() {
-        return new textclass(this.text).createClientSide('Bot.jpg', '', '');
+        return new TextClass(this.text).createClientSide('Bot.jpg', '', '');
     }
     createClientSide(a = 'user.png', b = 'right', c = 'darker') {
         disableall();
@@ -24,7 +24,7 @@ const textclass = class {
 
 const OptionClass = class {
     constructor(options, optionfunction) {
-        var container = new textclass('Please Choose from options Below!!').createBotSide();
+        var container = new TextClass('Please Choose from options Below!!').createBotSide();
         for (var i = 0; i != options.length; i++) {
             var btn = document.createElement("button");
             btn.innerHTML = options[i];
@@ -38,7 +38,7 @@ const OptionClass = class {
 
 const dropdown = class {
     constructor(option) {
-        var container = new textclass('Choose your Transport route!!').createBotSide();
+        var container = new TextClass('Choose your Transport route!!').createBotSide();
         var search = document.createElement('input');
         search.setAttribute('id', 'myInput');
         search.setAttribute('onkeyup', 'filterFunction();');
@@ -55,4 +55,8 @@ const dropdown = class {
         }
         return container;
     }
+}
+
+const append = (container) => {
+    document.getElementById('Textbox').appendChild(container);
 }
