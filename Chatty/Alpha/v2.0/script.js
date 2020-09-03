@@ -12,7 +12,7 @@ function keycode(sc) {
 }
 
 function routeofstop(e) {
-    for (var i = 0; i != route.route.length; i++) {
+    for (var i = 0; i != route.length; i++) {
         var SN = route.route[i];
         if (SN['stopName'] === e) {
             changeall('#myInput', 'disabled', true);

@@ -1,4 +1,4 @@
-var menucard= get('menu').then(d => d);
+var menucard= get('menu').then(d => d.menu);
 
 //This is lunch menu functions which search through every live sync data from web
 function finder(id) {
@@ -6,7 +6,7 @@ function finder(id) {
     daynumber=new Date().getDate();
     var month=["January","February","March","April","May","June","July","August","September","October","November","December"]
     daynumber=daynumber+" "+month[new Date().getMonth()];
-    for (var i=0; i < menucard.menu.length; i++) {
+    for (var i=0; i < menucard.length; i++) {
         var date = menucard.menu[i];
 
         if (date['date']===daynumber) {
@@ -46,25 +46,19 @@ function finder(id) {
 const TimeTable=function(str) {
     var results;
     days=0;
-
     const figureToControl=(h)=> {
         var g='';
-
         if ( !Number.isNaN(+h)===true) {
             Number(h);
-
             for(h > 0; h--; ) {
                 g+='<th></th>';
             }
         }
-
         else {
             g=`<th>${h}</th>`;
         }
-
         return g
     }
-
     const operate=(a, c)=> {
         days++;
         results=a.push(`<tr><th>Day ${days}</th><th></th>${
@@ -72,7 +66,6 @@ const TimeTable=function(str) {
             }</tr>`) 
         return results
     }
-
     var tableText=`<table><tr><th></th><th>Settling Time</th><th>1</th><th>2</th><th>3</th><th>Meal Break</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>`;
     tableText+=str.split('/').reduce((a, c)=> (operate(a, c), a), []).join('');
     return tableText+"</table>";
