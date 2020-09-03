@@ -8,18 +8,18 @@ function keycode(sc) {
         M = "0" + M
     }
     Time = H + ":" + M;
-    append(new TextClass("The route number is: " + routenumber + "\nThe Time is: " + Time).createClientSide());
+    append(new TextClass("The route number is: " + routenumber + "\nThe Time is: " + Time).createBotSide());
 }
 
 function routeofstop(e) {
     for (var i = 0; i != route.length; i++) {
-        var SN = route.route[i];
+        var SN = route[i];
         if (SN['stopName'] === e) {
             changeall('#myInput', 'disabled', true);
             document.getElementsByClassName('dropdown-content')[0].remove()
             document.querySelector('#option-typer').removeAttribute('disabled');
             changeall('#option-typer', 'placeholder', 'Type the options instead...');
-            route.sn = route.route[i];
+            route.sn = route[i];
             keycode('a');
             keycode('b');
             keycode('d');
