@@ -1,4 +1,4 @@
-var words = fetch(`https://raw.githubusercontent.com/lorenbrichter/Words/master/Words/en.txt`)
+var words = fetch(`https://raw.githubusercontent.com/fschatbot/fschatbot.github.io/master/Chatty/Alpha/v2.0/en.txt`)
 .then(response => response.text())
 .then(wordsstring => wordsstring.split('\n'))
 .then(wordsstring => {words = wordsstring});
