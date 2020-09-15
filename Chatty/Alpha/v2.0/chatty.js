@@ -2,6 +2,7 @@
 function chatty(choose, CalledFromSearch) {
     if (CalledFromSearch == true) {
         choose = document.getElementById("option-typer").value.toLowerCase();
+        choose = choose.split(' ').reduce((a,c)=>(a.push(autoCorrect(c)),a),[]).join(' ')
     }
     if (choose === 'Utli') {
         append(new TextClass('Utilitys').createClientSide())
@@ -17,8 +18,7 @@ I am happy to help you - don't get lost in the myriad of fsapps, use me instead!
         append(new TextClass("Form's Link").createClientSide())
         append(new OptionClass(["Exigency reporting form", "Dressing Feedback to Individual", "PYP School Counselor Intervention Form", "Event Feedback form", "Field Trip / Outstation Event Requisition Form", "Event Requisition/Students Calendar Entry Form 2019-20"], ["window.open('https://bit.ly/2TRb5qG');run()", "window.open('https://bit.ly/37wh2NC');run()", "window.open('https://bit.ly/36nKyUp');run()", "window.open('https://bit.ly/3awMWMd');run()", "window.open('https://bit.ly/2Gcm2LB');run()", "window.open('http://bit.ly/3c8YMNi');run()"]));
     } else if (choose === 'PDF' || choose === 'pdf') {
-        append(new TextClass('Under Process...').createBotSide());
-        run()
+        generatePDF();
     } else if (choose === 'date' || choose === "time" || choose === 'day') {
         append(new TextClass('Date And Time').createClientSide())
         append(new TextClass(new Date()).createBotSide());
@@ -49,4 +49,28 @@ I am happy to help you - don't get lost in the myriad of fsapps, use me instead!
     } else {
         console.info('The command term ' + choose + ' is not defined')
     }
+}
+
+const generatePDF = (incatergory = null) => {
+    var names = [];
+    var functions = [];
+    if(incatergory == null){
+        append(new TextClass("Policy PDF").createClientSide());
+        for(var i = 0; i < PDF.length;i++){
+            names.push(PDF[i].CatergoryName);
+            functions.push(`generatePDF('${PDF[i].CatergoryName}')`)
+        }
+    }
+    else{
+        append(new TextClass(`Policy PDF for ${incatergory}`).createClientSide());
+        for(var i = 0; i < PDF.length;i++){
+            if (incatergory.localeCompare(PDF[i].CatergoryName) == '0'){
+                for(var j = 0; j < PDF[i].CatergoryContent.length;j++){
+                    names.push(PDF[i].CatergoryContent[j].Name)
+                    functions.push(`openurl('${PDF[i].CatergoryContent[j].Link}')`)
+                }
+            }
+        }
+    }
+    append(new OptionClass(names,functions));
 }

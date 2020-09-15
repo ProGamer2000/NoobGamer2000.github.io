@@ -18,6 +18,12 @@ const get = async (url) => await fetch(
 .then(json => json)
 .catch(err => console.log(err))
 
+const openurl = (url) =>{
+    append(new TextClass(`Redirect me to the link`).createClientSide());
+    window.open(url)
+    append(new TextClass(`Ok, I have tried redirecting you to the link. If failed click <a href="${url}" target="_blank">here</a>!!`).createBotSide());
+    run()
+}
 function filterFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
@@ -47,7 +53,7 @@ function changeall(elem, atrribute, value) {
     }
 }
 
-function run() {
+const run = () => {
     var run = setTimeout(function() {
         append(new OptionClass(Slist, flist));
     }, 3000);
