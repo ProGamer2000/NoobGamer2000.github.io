@@ -6,15 +6,9 @@ window.addEventListener('load', function() {
     append(new OptionClass(Slist, flist));
 }, false);
 
-const get = async (url) => await fetch(
-    'https://v2-api.sheety.co/9a12bc0f9230b39275673e809fbca912/chattyApi/' + url,
-    {
-        headers: new Headers({
-            'Authorization': 'Bearer 418362',
-            'Content-Type': 'application/json'
-        })
-    })
-.then(response => response.json())
+const get = (sheet) => fetch(
+    'https://script.google.com/macros/s/AKfycbyrZWIv3LmVhcnf_BGNxKBNUIefKBY-R8zq2XSJQZSI5Mb94g/exec?sheet=' + sheet)
+.then((response) => response.json())
 .then(json => json)
 .catch(err => console.log(err))
 

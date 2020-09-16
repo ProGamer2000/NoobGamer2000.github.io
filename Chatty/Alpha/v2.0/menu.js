@@ -1,40 +1,32 @@
-var menucard= get('menu').then(d => d.menu);
+var menucard= get('menu').then(d => menucard = d);
 
 //This is lunch menu functions which search through every live sync data from web
 function finder(id) {
+    var found;
     append(new TextClass(id).createClientSide());
-    daynumber=new Date().getDate();
-    var month=["January","February","March","April","May","June","July","August","September","October","November","December"]
-    daynumber=daynumber+" "+month[new Date().getMonth()];
-    for (var i=0; i < menucard.length; i++) {
-        var date = menucard.menu[i];
-
-        if (date['date']===daynumber) {
+    daynumber = `${new Date().getFullYear()}-${("0" + new Date().getMonth()).slice(-2)}-${("0" + new Date().getDate()).slice(-2)}`
+    menucard.forEach(data => {
+        if (data.date.split('T')[0]===daynumber) {
             if (id==="Today's Special") {
-                append(new TextClass("Today's Special").createClientSide());
-                append(new TextClass(date['t1'] + ", "+ date['t2']).createBotSide());
-                run();
-                return 0;
+                append(new TextClass(data['t1'] + ", "+ data['t2']).createBotSide());
             }
 
             else if (id==="Menu Of The Day") {
-                append(new TextClass("Menu The Day").createClientSide());
-                var menu_list=date['m1']+", "+date['m2']+", "+date['m3']+", "+date['m4']+", "+date['m5'];
+                var menu_list=data['m1']+", "+data['m2']+", "+data['m3']+", "+data['m4']+", "+data['m5'];
                 append(new TextClass(menu_list).createBotSide());;
-                run();
-                return 0;
             }
+            found = true;
         }
 
         else if (id==="Menu Of The Month") {
             window.open("https://www.fountainheadschools.org/helpdesk/school-menu/");
             append(new TextClass('The Menu Of the Month has requested to be opened to the browser').createBotSide());
-            run();
-            return 0;
+            found = true;
         }
+    })
+    if (!found) {
+        append(new TextClass(`Sorry The Database Has not been updated to the latest menu ! ! You may use this <a href='https://www.fountainheadschools.org/helpdesk/school-menu/'>link<a/> for the time being`).createBotSide());
     }
-
-    append(new TextClass(`Sorry The Database Has not been updated to the latest menu ! ! You may use this <a href='https://www.fountainheadschools.org/helpdesk/school-menu/'>link<a/> for the time being`).createBotSide());
     document.querySelector('#option-typer').removeAttribute('disabled');
     document.querySelector('#option-typer').placeholder='Type the options instead...';
     run()

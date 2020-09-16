@@ -1,4 +1,4 @@
-var route = get('route').then(d => route = d.route);
+var route = get('route').then(d => route = d);
 //This will do the bus Route task
 function keycode(sc) {
     routenumber = sc.toUpperCase() + String(route.sn['route' + sc.toUpperCase()])
@@ -20,6 +20,7 @@ function routeofstop(e) {
             document.querySelector('#option-typer').removeAttribute('disabled');
             changeall('#option-typer', 'placeholder', 'Type the options instead...');
             route.sn = route[i];
+            append(new TextClass(`Give me the information about ${e}`).createClientSide())
             keycode('a');
             keycode('b');
             keycode('d');

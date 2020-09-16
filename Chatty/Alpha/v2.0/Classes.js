@@ -37,7 +37,7 @@ const OptionClass = class {
 }
 
 const dropdown = class {
-    constructor(option) {
+    constructor(option,functions) {
         var container = new TextClass('Choose your Transport route!!').createBotSide();
         var search = document.createElement('input');
         search.setAttribute('id', 'myInput');
@@ -49,7 +49,7 @@ const dropdown = class {
         container.appendChild(form);
         for (var i = 0; i != option.length; i++) {
             var options = document.createElement('a');
-            options.setAttribute('onclick', 'routeofstop(this.innerText)')
+            options.setAttribute('onclick', functions)
             options.innerHTML = option[i];
             form.appendChild(options)
         }

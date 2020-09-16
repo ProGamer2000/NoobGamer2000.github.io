@@ -32,21 +32,21 @@ I am happy to help you - don't get lost in the myriad of fsapps, use me instead!
         changeall('#option-typer', 'disabled', true);
         changeall('#option-typer', 'placeholder', 'choose from options above');
         append(new TextClass('Menu').createClientSide());
-        append(new OptionClass(['Today', 'This month'], ['finder("Menu Of The Day")', 'finder("Menu Of The Month")']));
+        append(new OptionClass(['Today', 'This month','Search for a food date'], ['finder("Menu Of The Day")', 'finder("Menu Of The Month")','chatty("foodsearch")']));
         //print2("What do you you want", ["lunch menu","Today's Special"],['menu("menuOfMonth")','menu("todaysSpecial")'])
     } else if (choose === "TS" || choose === "today's special") {
-        append(new TextClass("Today's Special").createClientSide());
         finder("Today's Special");
-        run();
     } else if (choose === "TR" || choose === "transport route") {
         append(new TextClass("Transport Route").createClientSide());
         //Transport route
         var obj = [];
-        for (var i = 0; i != route.length; i++) {
-            obj.push(route[i]["stopName"]);
-        }
-        append(new dropdown(obj));
-    } else {
+        route.forEach(response => {obj.push(response.stopName)})
+        append(new dropdown(obj,'routeofstop(this.innerText)'));
+    } else if(choose == "foodsearch"){
+        append(new TextClass("I want to search for a food").createClientSide());
+        generateFoodList()
+    }
+    else {
         console.info('The command term ' + choose + ' is not defined')
     }
 }
@@ -73,4 +73,36 @@ const generatePDF = (incatergory = null) => {
         }
     }
     append(new OptionClass(names,functions));
+}
+
+const generateFoodList = (food) => {
+    var found;
+    if (!food) {
+        var foodlist = [];
+        menucard.forEach(response => {if (response.m1){foodlist.push(response.m1)}})
+        menucard.forEach(response => {if (response.m2){foodlist.push(response.m2)}})
+        menucard.forEach(response => {if (response.m3){foodlist.push(response.m3)}})
+        menucard.forEach(response => {if (response.m4){foodlist.push(response.m4)}})
+        menucard.forEach(response => {if (response.m5){foodlist.push(response.m5)}})
+        foodlist = [...new Set(foodlist.sort())];
+        append(new dropdown(foodlist, 'generateFoodList(this.innerText)'));
+    } else {
+        changeall('#myInput', 'disabled', true);
+        document.getElementsByClassName('dropdown-content')[0].remove()
+        document.querySelector('#option-typer').removeAttribute('disabled');
+        changeall('#option-typer', 'placeholder', 'Type the options instead...');
+        append(new TextClass(`Give me the information about ${food}`).createClientSide())
+        menucard.forEach(response => {
+            if(response.m1 == food) {found = true;}
+            else if (response.m2 == food) {found = true;}
+            else if (response.m3 == food) {found = true;}
+            else if (response.m4 == food) {found = true;}
+            else if (response.m5 == food) {found = true;}
+            if(found == true){
+                append(new TextClass(`The food can appear on your plate on ${response.date.split('T')[0].split('-')[2]}(th)`).createBotSide());
+            }
+            found = false;
+        })
+        run()
+    }
 }
