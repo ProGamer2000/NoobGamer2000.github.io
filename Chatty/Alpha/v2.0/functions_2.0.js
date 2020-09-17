@@ -1,12 +1,15 @@
-const Slist = ["Menu", "Today's Special", "Transport Route", "Day", "Contact List/ Intercom", "Utilities"];
+const Slist = ["Menu", "Today's Special", "Transport Route", "Date and Time", "Contact List/ Intercom", "Utilities"];
 const flist = ["chatty('lunch')", "chatty('TS')", "chatty('TR')", "chatty('date')", "chatty('CL')", "chatty('Utli')"];
 
 window.addEventListener('load', function() {
-    document.getElementsByClassName('loading')[0].remove()
-    append(new OptionClass(Slist, flist));
+    setTimeout(function() {
+        document.getElementsByClassName('loading')[0].remove()
+        append(new OptionClass(Slist, flist));
+    },2000)
+    
 }, false);
 
-const get = (sheet) => fetch(
+const get = async (sheet) => await fetch(
     'https://script.google.com/macros/s/AKfycbyrZWIv3LmVhcnf_BGNxKBNUIefKBY-R8zq2XSJQZSI5Mb94g/exec?sheet=' + sheet)
 .then((response) => response.json())
 .then(json => json)
