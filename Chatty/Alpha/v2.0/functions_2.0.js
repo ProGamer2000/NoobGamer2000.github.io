@@ -1,19 +1,22 @@
 const Slist = ["Menu", "Today's Special", "Transport Route", "Date and Time", "Contact List/ Intercom", "Utilities"];
 const flist = ["chatty('lunch')", "chatty('TS')", "chatty('TR')", "chatty('date')", "chatty('CL')", "chatty('Utli')"];
-
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.getElementsByClassName('loading')[0].remove()
-        append(new OptionClass(Slist, flist));
-    },2000)
-    
-}, false);
-
 const get = async (sheet) => await fetch(
     'https://script.google.com/macros/s/AKfycbyrZWIv3LmVhcnf_BGNxKBNUIefKBY-R8zq2XSJQZSI5Mb94g/exec?sheet=' + sheet)
 .then((response) => response.json())
 .then(json => json)
 .catch(err => console.log(err))
+
+function loadNow(opacity) {
+    if (opacity <= 0) {
+    document.getElementById('loader').remove();
+    document.getElementsByClassName('bot')[0].style.display = 'block';
+    } else {
+        document.getElementById('loader').style.opacity = opacity;
+        window.setTimeout(function() {
+            loadNow(opacity - 0.05);
+        }, 50);
+    }
+}
 
 const openurl = (url) =>{
     append(new TextClass(`Redirect me to the link`).createClientSide());
@@ -29,7 +32,7 @@ function filterFunction() {
     a = div.getElementsByTagName("a");
     for (i = 0; i < a.length; i++) {
         txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        if (txtValue.toUpperCase().search(filter) > -1) {
             a[i].style.display = "";
         } else {
             a[i].style.display = "none";

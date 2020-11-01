@@ -1,4 +1,5 @@
-var route = get('route').then(d => route = d);
+let route = get('route').then(d => route = d)
+Promise.allSettled([menucard,route]).then(values => {loadNow(1);append(new OptionClass(Slist, flist));})
 //This will do the bus Route task
 function keycode(sc) {
     routenumber = sc.toUpperCase() + String(route.sn['route' + sc.toUpperCase()])
