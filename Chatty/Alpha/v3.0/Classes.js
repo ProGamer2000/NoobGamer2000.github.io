@@ -83,7 +83,7 @@ const boxes = (tconfig) => {
         changeall('.Button', 'class', 'disable');
         changeall('#myInput', 'disabled', true);
         document.getElementById('Textbox').appendChild(container);
-
+        container.scrollIntoView({behavior: "smooth"})
     }
 }
 

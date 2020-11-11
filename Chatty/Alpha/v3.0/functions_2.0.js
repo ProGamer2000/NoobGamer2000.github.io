@@ -1,8 +1,8 @@
 const get = async (sheet) => await fetch(
     'https://script.google.com/macros/s/AKfycbyrZWIv3LmVhcnf_BGNxKBNUIefKBY-R8zq2XSJQZSI5Mb94g/exec?sheet=' + sheet)
-.then((response) => response.json())
-.then(json => json)
-.catch(err => console.log(err));
+.then(r => r.json())
+.then(j => j)
+.catch(e => alert(e+'\nPlease Close this page open it again to fix it!'));
 
 //Store all the important data
 let menucard= get('menu').then(d => menucard = d);
@@ -27,7 +27,7 @@ const openurl = (url) => {
         Message: `Ok, I have tried redirecting you to the link. If failed click <a href="${url}" target="_blank">here</a>!!`,
         side: "bot"
     })
-    run()
+    run();
 }
 
 function changeall(elem, atrribute, value) {
@@ -50,13 +50,13 @@ const run = () => {
 }
 // Check If all the links have been fetched and then load everything
 Promise.allSettled([menucard, route]).then(values => {
-    console.info('All the files have been loaded');
     loadNow(1);
     boxes({
-        back: true,
         Type: "Button",
         side: "bot",
         Message: "What can I help you with today??",
         Options: dlist
     })
+    document.querySelector('.container').setAttribute('back','true')
+    console.info('All the data has been fetched and the ChatBot is up and running');
 })
