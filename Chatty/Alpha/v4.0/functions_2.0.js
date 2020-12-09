@@ -2,7 +2,10 @@ const get = async (sheet) => await fetch(
     'https://script.google.com/macros/s/AKfycbyrZWIv3LmVhcnf_BGNxKBNUIefKBY-R8zq2XSJQZSI5Mb94g/exec?sheet=' + sheet)
 .then(r => r.json())
 .then(j => j)
-.catch(e => alert(e+'\nPlease refresh this page'));
+.catch(e => {
+    loadNow(1);
+    boxes({isbot: true,Message: "There has been a error\nError:n"+e,})
+});
 
 //Store all the important data
 let menucard= get('menu').then(d => menucard = d);
@@ -58,3 +61,14 @@ Promise.allSettled([menucard, route]).then(values => {
     document.querySelector('.container').setAttribute('back','true')
     console.info('All the data has been fetched and the ChatBot is up and running');
 })
+
+const back = ()=>{
+    let container = document.querySelectorAll('[back="true"]');
+    container = container[container.length-2].cloneNode(true);
+    container.querySelectorAll('[class="Button disable"]').forEach(e=>{
+        e.setAttribute('class','Button');
+        e.removeAttribute('disabled');
+    })
+    document.getElementById('Textbox').appendChild(container);
+    container.scrollIntoView({behavior: "smooth"})
+}
