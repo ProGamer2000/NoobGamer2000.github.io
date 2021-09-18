@@ -71,7 +71,7 @@ const biased_random = (probabilities) => {
     	total += probabilities[key]
     }
 	// Return a random value from the list if no value is found
-	return Object.keys(probabilities)[Math.round(Math.random() * Object.keys(probabilities).length)]
+	return Object.keys(probabilities).random()
 }
 const random_puzzle = () => {
 	// Generates Random Puzzles based on where the user is weak
@@ -169,49 +169,39 @@ function showAnswer(text,color){
 		})
 	animation.onfinish = () => text_elm.remove()
 }
-function createParticle(color) {
-	//Get Random x and y outside the Button
-	let puzzle = document.querySelector('#Submit_Puzzle')
-	let parent_offset = {top:puzzle.parentNode.offsetTop,left:puzzle.parentNode.offsetLeft}
-	let offset_top = parent_offset.top + puzzle.offsetTop + 250
-	let offset_left = parent_offset.top + puzzle.offsetLeft
-	y = offset_left + 5
-	rand_x = Math.randomNum(offset_top+120,offset_top-150)
-	// Create a custom particle element
-	const particle = document.createElement('particle');
-	// Append the element into the body
-	document.body.appendChild(particle);
-	// Calculate a random size from 5px to 25px
-	const size = Math.floor(Math.random() * 20 + 5);
-	// Apply the size on each particle
-	particle.style.width = `${size}px`;
-	particle.style.height = `${size}px`;
-	// Generate a random color in a blue/purple palette
-	particle.style.background = color
-	// Generate a random x & y destination within a distance of 75px from the mouse
-	const destinationX = rand_x + (Math.random() - 0.5) * 2 * 75;
-	const destinationY = y + (Math.random() - 0.5) * 2 * 75;
 
-	// Store the animation in a variable because we will need it later
-	const animation = particle.animate([{
-			// Set the origin position of the particle
-			// We offset the particle with half its size to center it around the mouse
-			transform: `translate(${rand_x - (size / 2)}px, ${y - (size / 2)}px)`,
-			opacity: 1
-		},{
-			// We define the final coordinates as the second keyframe
-			transform: `translate(${destinationX}px, ${destinationY}px)`,
-			opacity: 0
-		}], {
-			// Set a random duration from 500 to 1500ms
-			duration: 500 + Math.random() * 1000,
-			easing: 'cubic-bezier(0, .9, .57, 1)',
-			// Delay every particle with a random value from 0ms to 200ms
-			delay: Math.random() * 200
-		});
+const particle_div = document.getElementById('partice-div');
+function createParticle(color) {
+	//Get random position from the button
+	let puzzle = document.querySelector('#Submit_Puzzle');
+	let position = puzzle.getBoundingClientRect();
+	const rand_x = Math.randomNum(position.left + puzzle.offsetWidth,position.left);
+	const rand_y = Math.randomNum(position.top + puzzle.offsetHeight,position.top);
+	const ParticleSize = Math.randomNum(25, 5);
+	// The particle will move 75px from the original position
+	const destinationX = rand_x + (Math.random() - 0.5) * 2 * 75;
+	const destinationY = rand_y + (Math.random() - 0.5) * 2 * 75;
+	
+	// Create the particle element
+	const particle = document.createElement('particle');
+	particle.style.width = ParticleSize+'px';
+	particle.style.height = ParticleSize+'px';
+	particle.style.background = color;
+	particle_div.appendChild(particle);
+	
+	// Animate the particle
+	const animation = particle.animate([
+		{transform: `translate(${rand_x}px, ${rand_y}px)`,opacity: 1},
+		{transform: `translate(${destinationX}px, ${destinationY}px)`,opacity: 0}
+	], {
+		duration: 500 + Math.random() * 1000,
+		easing: 'cubic-bezier(0, .9, .57, 1)',
+		delay: Math.random() * 200
+	});
 	// When the animation is finished, remove the element from the DOM
-	animation.onfinish = () => particle.remove()
+	animation.onfinish = () => particle.remove();
 }
+
 const start_game = () => {
 	document.querySelector("#Menu").classList.add('hidden')
 	document.querySelector("#Puzzle_box").classList.remove('hidden')

@@ -28,3 +28,5 @@ answer_delay_slider.oninput = () => {
 			document.querySelector('#Answer_delay_show').innerHTML = 'Answer Delay'
 	},1000)
 }
+
+document.querySelector(".game-settings").addEventListener("click", () => document.getElementById("options").classList.toggle("animate"))
