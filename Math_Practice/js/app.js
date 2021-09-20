@@ -11,18 +11,19 @@ let config = {
 	secound_max:9,
 	secound_min:2
 };
-(() =>{ 
+let setup = (first_max,first_min, secnd_max,secnd_min) =>{ 
 	//This is to set the probabilitys up
 	// Give Each equal percent chance of happening
-	first_digit_chance = 1/(config.first_max - config.first_min + 1)
-	secound_digit_chance = 1/(config.secound_max - config.secound_min + 1)
-	for (let i = config.first_min; i <= config.first_max;i++){
+	first_digit_chance = 1/(first_max - first_min + 1)
+	secnd_digit_chance = 1/(secnd_max - secnd_min + 1)
+	for (let i = first_min; i <= first_max;i++){
 		equation_probability.first_digit[i] = first_digit_chance
 	}
-	for (let i = config.secound_min; i <= config.secound_max;i++){
-		equation_probability.secound_digit[i] = secound_digit_chance
+	for (let i = secnd_min; i <= secnd_max;i++){
+		equation_probability.secound_digit[i] = secnd_digit_chance
 	}
-})();
+}
+setup(config.first_max,config.first_min,config.secound_max,config.secound_min)
 
 const NumFix = (number) => parseFloat(number.toFixed(14));
 const fix_probability = () => {
@@ -135,6 +136,9 @@ const check_answer = () => {
 	} else{
 		score['skipped'] += 1;
 		showAnswer(`Answer: ${current_puzzle["answer"]}`)
+		for (let i = 1;i <= 100;i++){
+			createParticle('#ff8000')
+		}
 	}
 	answer.value = ""
 	answer.select()
