@@ -1,0 +1,45 @@
+:root {
+	--default-color: #e77e7e;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#Ruffle_Player {
+	border-radius: 25px;
+	border: 5px solid var(--default-color);
+	width: min-content;
+	height: min-content;
+	margin-top: 20px;
+	height: 599px;
+	width: 896px;
+	overflow: hidden;
+}
+
+#fsbutton {
+	margin: auto;
+	margin-top: 10px;
+	background-color: var(--default-color);
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 10px 20px;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+ruffle-player {
+	border-radius: 25px;
+	height: 600px;
+	width: 900px;
+}
+
+body {
+	height: auto;
+	/* width: 100vw; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
